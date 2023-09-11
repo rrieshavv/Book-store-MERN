@@ -4,7 +4,7 @@ import { Book } from "../models/bookModel.js";
 
 const router = express.Router();
 
-//Route for save a new book
+//save a new book
 router.post("/", async (req, res) => {
   try {
     //validating if req body is valid
@@ -29,6 +29,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+//get all the books
 router.get("/", async (req, res) => {
   try {
     const books = await Book.find({});
@@ -43,7 +44,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// get books by id
+//get books by id
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -78,7 +79,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//delete book
+//delete a book
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
